@@ -38,6 +38,7 @@ public class ClickHouseUtils implements CKUtils {
         return b;
     }
 
+
     @Override
     public boolean delete(String sql, String... params) {
         Connection connection = clickHousePool.getConnection();
