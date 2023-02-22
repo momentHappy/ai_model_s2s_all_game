@@ -1,0 +1,42 @@
+
+# 服务端口
+server:
+  port: 8082
+
+# 服务名称
+spring:
+  application:
+    name: ai_model_s2s_all_game
+
+logging:
+  #日志级别
+  level:
+    root: info
+  file:
+    # 日志文件名格式
+    name: /data/logs/muyou/ai_model_s2s_all_game/${spring.application.name}.out.log
+  pattern:
+    # 日志记录格式[组件名称] [时间戳] [日志级别] [类名.方法名] [消息文本]
+    file: ai_model_s2s_all_game %d{yyyy-MM-dd HH:mm:ss.SSS} %p %C.%M %m %n
+  logback:
+      rollingpolicy:
+        # 根据文件大小归档，超过2KB自动归档，次日启动服务时也会自动归档
+        file-name-pattern: /data/logs/muyou/ai_model_s2s_all_game/%d{yyyyMMdd}/${spring.application.name}.out.log.%d{yyyy-MM-dd}.%i.gz
+        # 最大日志文件大小(默认为10MB，这里为了测试归档，暂时设置为2KB)
+        max-file-size: 10MB
+        # 要保留的日志备份的总大小(默认为0B)
+        total-size-cap: 1GB
+        # 保存存档日志文件的最大天数(默认为7天)
+        max-history: 20
+
+user_signals_path: /root/ai_ads/result/muyou/output/
+user_signals_name: /signals.csv
+user_job_done: /job.done
+
+#clickhouse配置
+#clickhouse_driverName: ru.yandex.clickhouse.ClickHouseDriver
+#clickhouse_url: jdbc:clickhouse://13.213.128.17:8123/anfanapi?socket_timeout=300000
+#clickhouse_user: bigdata
+#clickhouse_password: novasmobi
+
+
