@@ -10,9 +10,9 @@ public class ClickHousePool {
 
     //    clickhouse配置
     private static final String clickhouse_driverName = "ru.yandex.clickhouse.ClickHouseDriver";
-    private static final String clickhouse_url = "jdbc:clickhouse://13.213.128.17:8123/anfanapi?socket_timeout=300000";
-    private static final String clickhouse_user = "bigdata";
-    private static final String clickhouse_password = "novasmobi";
+    private static final String clickhouse_url = "jdbc:clickhouse://cc-wz9mj542m8pt5ih61.public.clickhouse.ads.aliyuncs.com:8123/anfanapi_test?socket_timeout=300000";
+    private static final String clickhouse_user = "root";
+    private static final String clickhouse_password = "dhFLy5y39ihh";
 
     private int maxConnections = 10; // 空闲池，最大连接数
     private int initConnections = 5;// 初始化连接数
@@ -21,6 +21,7 @@ public class ClickHousePool {
 
     //线程安全集合
     private List<Connection> freeConnectPool = new Vector<>();
+
     private List<Connection> activeConnectPool = new Vector<>();
     //计算最大连接数
     int count = 0;

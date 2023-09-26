@@ -20,16 +20,16 @@ public class ClickHouseUtils implements CKUtils {
     public boolean insert(String sql, String... params) {
         Connection connection = clickHousePool.getConnection();
         boolean b = false;
-        ClickHousePreparedStatement pst = null;
         if (connection == null) {
             System.out.println("connection is empty");
         }
         try {
-            pst = (ClickHousePreparedStatement) connection.prepareStatement(sql);
+            ClickHousePreparedStatement pst = (ClickHousePreparedStatement) connection.prepareStatement(sql);
             for (int i = 0; i < params.length; i++) {
                 pst.setObject(i + 1, params[i]);
             }
             b = pst.execute();
+            pst.close();
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         } finally {
@@ -37,7 +37,6 @@ public class ClickHouseUtils implements CKUtils {
         }
         return b;
     }
-
 
     @Override
     public boolean delete(String sql, String... params) {
@@ -49,12 +48,12 @@ public class ClickHouseUtils implements CKUtils {
     public ResultSet queryResultSet(String sql, String... params) {
         Connection connection = clickHousePool.getConnection();
         ResultSet rst = null;
-        ClickHousePreparedStatement pst = null;
+
         if (connection == null) {
             System.out.println("connection is empty");
         }
         try {
-            pst = (ClickHousePreparedStatement) connection.prepareStatement(sql);
+            ClickHousePreparedStatement pst = (ClickHousePreparedStatement) connection.prepareStatement(sql);
             for (int i = 0; i < params.length; i++) {
                 pst.setObject(i + 1, params[i]);
             }
