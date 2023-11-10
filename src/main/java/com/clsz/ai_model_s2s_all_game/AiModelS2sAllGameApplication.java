@@ -14,6 +14,7 @@ public class AiModelS2sAllGameApplication {
 
 
 	public static void main(String[] args) {
+		// test --- >
 		SpringApplication.run(AiModelS2sAllGameApplication.class, args);
 	}
 
