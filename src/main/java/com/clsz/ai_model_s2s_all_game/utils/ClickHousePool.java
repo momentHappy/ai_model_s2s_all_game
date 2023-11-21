@@ -10,7 +10,7 @@ public class ClickHousePool {
 
     //    clickhouse配置
     private static final String clickhouse_driverName = "ru.yandex.clickhouse.ClickHouseDriver";
-    private static final String clickhouse_url = "jdbc:clickhouse://cc-wz9mj542m8pt5ih61.public.clickhouse.ads.aliyuncs.com:8123/anfanapi_test?socket_timeout=300000";
+    private static final String clickhouse_url = "jdbc:clickhouse://cc-wz9mj542m8pt5ih61.public.clickhouse.ads.aliyuncs.com:8123/anfanapi_pd?socket_timeout=300000";
     private static final String clickhouse_user = "root";
     private static final String clickhouse_password = "dhFLy5y39ihh";
 
