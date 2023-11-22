@@ -144,7 +144,7 @@ public abstract class AbstractAdjustCallbackAction {
             return infos;
         }
 
-        String selectUserInfoSql = "SELECT adid, MAX(idfa), MAX(gps_adid), MAX(create_time), MAX(app_name) FROM event_log_hw WHERE adid IN ( '" + param2 + "' ) GROUP BY adid ";
+        String selectUserInfoSql = "SELECT adid, MAX(idfa), MAX(gps_adid), MAX(create_time), MAX(app_name) FROM ai_adjust_event_log WHERE adid IN ( '" + param2 + "' ) GROUP BY adid ";
         ResultSet selectUserInfoRs = clickHouseUtils.queryResultSet(selectUserInfoSql);
         while (selectUserInfoRs.next()) {
             UserSignals signals = map.get(selectUserInfoRs.getString(1));
